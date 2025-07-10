@@ -73,6 +73,7 @@ export default {
         {name: 'facebook', title: 'Facebook', type: 'url'},
         {name: 'tiktok', title: 'TikTok', type: 'url'},
         {name: 'youtube', title: 'YouTube', type: 'url'},
+        {name: 'x', title: 'X', type: 'url'},
       ],
     },
   ],
