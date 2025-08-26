@@ -28,7 +28,6 @@ export default {
               name: 'dia',
               title: 'Día',
               type: 'string',
-              // Se agrega una lista de opciones para el campo 'dia'
               options: {
                 list: [
                   { title: 'Lunes', value: 'lunes' },

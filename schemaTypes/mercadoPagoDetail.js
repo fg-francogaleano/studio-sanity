@@ -16,4 +16,18 @@ export default {
       type: "string",
     },
   ],
+  preview: {
+    select: {
+      title: 'mpEmail',
+      media: 'qrImage',
+    },
+    prepare(selection) {
+      const { title, media } = selection;
+      return {
+        title: `Datos de Mercado Pago`,
+        subtitle: `Correo: ${title}`,
+        media: media,
+      };
+    },
+  },
 };

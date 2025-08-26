@@ -85,4 +85,19 @@ export default {
       ],
     },
   ],
+  preview: {
+    select: {
+      calle: 'calle',
+      numero: 'numero',
+      localidad: 'localidad',
+      provincia: 'provincia',
+    },
+    prepare(selection) {
+      const { calle, numero, localidad, provincia } = selection;
+      return {
+        title: `${calle} ${numero}, ${localidad}`,
+        subtitle: provincia,
+      };
+    },
+  },
 };

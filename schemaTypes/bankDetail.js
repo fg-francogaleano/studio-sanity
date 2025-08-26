@@ -30,4 +30,10 @@ export default {
       type: "string",
     },
   ],
+  preview: {
+    select: {
+      title: 'bank',
+      subtitle: 'holder',
+    },
+  },
 };
