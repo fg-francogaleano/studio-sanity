@@ -1,4 +1,3 @@
-// /schemas/event.js
 export default {
   name: "event",
   title: "Eventos",
@@ -15,14 +14,22 @@ export default {
       title: "Fecha",
       type: "date",
       options: {
-    dateFormat: "DD/MM/YYYY", // formato en que se muestra
-    calendarTodayLabel: "Hoy" // etiqueta personalizada
-  }, // si querés precisión de calendario usar "datetime"
+        dateFormat: "DD/MM/YYYY",
+        calendarTodayLabel: "Hoy",
+      },
     },
     {
       name: "time",
       title: "Horario",
       type: "string",
+      // Validación para formato HH:MM
+      validation: (Rule) =>
+        Rule.required()
+          .regex(/^([01]\d|2[0-3]):([0-5]\d)$/, {
+            name: "formato de hora (HH:MM)", // Nombre amigable para el error
+            invert: false, // La regex debe coincidir
+          })
+          .error("El horario debe tener el formato HH:MM (ej. 14:30)"),
     },
     {
       name: "location",
@@ -57,7 +64,7 @@ export default {
       return {
         title,
         subtitle,
-        media: media ? "hola" : "si",
+        media: media ? "🌟 Destacado" : "🗓️ Evento", // Sugerencia para mejor visualización
       };
     },
   },
