@@ -1,9 +1,12 @@
+import { orderRankField } from "@sanity/orderable-document-list";
+
 // /schemas/donation.js
 export default {
   name: "bankDetail",
   title: "Datos Bancarios",
   type: "document",
   fields: [
+    orderRankField({ type: 'event' }),    
     {
       name: "bank",
       title: "Banco",

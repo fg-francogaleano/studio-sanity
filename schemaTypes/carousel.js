@@ -1,3 +1,5 @@
+import { orderRankField } from "@sanity/orderable-document-list";
+
 export default {
   name: "carousel",
   title: "Carrosel",
@@ -5,31 +7,31 @@ export default {
 
   preview: {
     select: {
-      carrusel: 'carrusel',
+      image: "image",
+      order: "orderRank",
     },
     prepare(selection) {
-      const totalImages = selection.carrusel ? selection.carrusel.length : 0;
+      const { image, order } = selection;
+      const title = `Imagen N° ${order}`;
+
       return {
-        title: 'Imágenes',
-        subtitle: `Total de imágenes: ${totalImages}`,
+        title: title,
+        subtitle: "Haz clic para editar",
+        media: image,
       };
     },
   },
 
   fields: [
+    orderRankField({ type: "carousel" }),
     {
-      name: "carrusel",
-      title: "Imágenes del Carrusel",
-      type: "array",
-      of: [
-        {
-          type: "image",
-          options: {
-            hotspot: true,
-          },
-        },
-      ],
-      validation: (Rule) => Rule.required().min(1),
+      name: "image",
+      title: "Imagen del Carrusel",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required(),
     },
   ],
 };
