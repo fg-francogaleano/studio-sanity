@@ -70,7 +70,7 @@ export default {
       type: "string",
       validation: (Rule) => Rule.required().email(),
     },
-    {
+     {
       name: "redes",
       title: "Redes Sociales",
       type: "array",
@@ -78,9 +78,35 @@ export default {
         {
           type: "object",
           fields: [
-            { name: "nombre", title: "Nombre de la Red Social", type: "string" },
+            {
+              name: "nombre",
+              title: "Nombre de la Red Social",
+              type: "string",
+              options: {
+                list: [
+                  { title: 'Facebook', value: 'facebook' },
+                  { title: 'YouTube', value: 'youtube' },
+                  { title: 'Instagram', value: 'instagram' },
+                  { title: 'WhatsApp', value: 'whatsapp' },
+                  { title: 'TikTok', value: 'tiktok' },
+                  { title: 'Telegram', value: 'telegram' },
+                  { title: 'Snapchat', value: 'snapchat' },
+                  { title: 'X', value: 'x' },
+                  { title: 'Pinterest', value: 'pinterest' },
+                  { title: 'Linkedin', value: 'linkedin' },
+                  { title: 'Spotify', value: 'spotify' },
+                ],
+              },
+            },
             { name: "url", title: "URL", type: "url" },
           ],
+          // Vista previa para cada objeto dentro del array
+          preview: {
+            select: {
+              title: 'nombre',
+              subtitle: 'url',
+            },
+          },
         },
       ],
     },
